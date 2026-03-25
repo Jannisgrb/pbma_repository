@@ -19,7 +19,5 @@ int ggt_2 = ggt2(45, 100);
 cout << "Größter gemeinsamer Teiler von " << x << " & " << y << ": " << ggt << endl;
 cout << "Größter gemeinsamer Teiler von " << x << " & " << y << ": " << ggt_2 << endl;
 
-//X2GO Version
-
 return 0;
 }
