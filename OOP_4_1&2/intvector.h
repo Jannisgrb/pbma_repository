@@ -16,6 +16,7 @@ public:
 	size_t size() const;
 	int& operator[](size_t idx);
 	void out() const;
+	void remove(int idx);
 };
 
 #endif /* INTVECTOR_H_ */

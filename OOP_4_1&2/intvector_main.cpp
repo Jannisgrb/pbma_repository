@@ -49,13 +49,16 @@ void copyassign() {
 	cout << "v1: " << endl;
 	v1.out();
 
-	IntVector v2 = IntVector(v1);
+	IntVector v2(v1);
 	cout << "v2: " << endl;
 	v2.out();
 
 	IntVector v3(10);
 	v3 = v2;
 	cout << "v3: " << endl;
+	v3.out();
+
+	v3.remove(5);
 	v3.out();
 
 }
