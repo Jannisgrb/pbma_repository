@@ -1,10 +1,3 @@
-/*
- * Line.h
- *
- *  Created on: 06.05.2026
- *      Author: n3030503
- */
-
 #ifndef LINE_H_
 #define LINE_H_
 #include "Point.h"
