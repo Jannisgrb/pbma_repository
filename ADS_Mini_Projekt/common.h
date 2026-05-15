@@ -3,10 +3,26 @@
 using namespace std;
 
 typedef struct{
-	int length;
+	int Zeile;
+	int Spalte;
+	char Richtung;
+}Direction;
+
+typedef struct{
 	string word;
-}Word;
+	int Zeile;
+	int Spalte;
+	char Richtung;
+	bool enthalten;
+}Result;
 
+//typedef struct{
+//	int Zeile;
+//	int Spalte;
+//}Index;
 
+void Anfangsbuchstaben_Suche(string word, vector<string> grid);
+
+Result Wortsuche(Index start_index, string word, vector<string> grid, Direction Richtung);
 
 #endif
