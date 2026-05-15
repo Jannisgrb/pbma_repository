@@ -8,3 +8,5 @@
 **/.cproject
 .autotools
 .DS_Store
+**/.dSYM/
+*.dSYM/

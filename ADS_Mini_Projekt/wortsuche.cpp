@@ -15,5 +15,6 @@ int main(int argc, const char* argv[]){
 
 	vector<string> grid = read_words(fname);
 
+	cout << grid[0] << endl;
 
 }
