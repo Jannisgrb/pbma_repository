@@ -1,10 +1,6 @@
-/*
- * common.cpp
- *
- *  Created on: 15.05.2026
- *      Author: n3030503
- */
-
-
-
+#include <iostream>
+#include <vector>
+#include "pbma.h"
+#include "common.h"
+using namespace std;
 

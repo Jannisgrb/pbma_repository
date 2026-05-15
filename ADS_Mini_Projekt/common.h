@@ -1,10 +1,12 @@
-/*
- * common.h
- *
- *  Created on: 15.05.2026
- *      Author: n3030503
- */
+#ifndef COMMON_H_
+#define COMMON_H_
+using namespace std;
+
+typedef struct{
+	int length;
+	string word;
+}Word;
 
 
 
-
+#endif
