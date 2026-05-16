@@ -16,13 +16,11 @@ typedef struct{
 	bool enthalten;
 }Result;
 
-//typedef struct{
-//	int Zeile;
-//	int Spalte;
-//}Index;
+void Suchaufruf(string word, vector<string> grid);
 
-void Anfangsbuchstaben_Suche(string word, vector<string> grid);
-
-Result Wortsuche(Index start_index, string word, vector<string> grid, Direction Richtung);
+Result Wortsuche_Rechts(string word, vector<string> grid, Direction start);
+Result Wortsuche_Links(string word, vector<string> grid, Direction start);
+Result Wortsuche_Unten(string word, vector<string> grid, Direction start);
+Result Wortsuche_Oben(string word, vector<string> grid, Direction start);
 
 #endif
