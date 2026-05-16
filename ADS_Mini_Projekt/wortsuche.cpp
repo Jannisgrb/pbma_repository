@@ -33,9 +33,10 @@ int main(int argc, const char* argv[]){
 
 	string wort;
 
-	cin >> wort;
+	while (cin >> wort){
+		suchwoerter.push_back(wort);
+	}
 		
-	suchwoerter.push_back(wort);
 
 
 	for(size_t i = 0; i < suchwoerter.size(); ++i){
