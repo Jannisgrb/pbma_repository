@@ -13,12 +13,12 @@ int main(int argc, const char* argv[]){
 		throw runtime_error("Fehler: Grid konnte nicht gelesen werden.");
 	}
 
-	if (grid.size() != stoi(grid[0]) + 1){
+	if (grid.size() != (size_t)stoi(grid[0]) + 1){
 		throw runtime_error("Fehler: Grid ist nicht quadratisch!");
 	}
 
 	for(size_t i = 1; i < grid.size(); ++i){
-		if (grid[i].size() != stoi(grid[0])){
+		if (grid[i].size() != (size_t)stoi(grid[0])){
 			throw runtime_error("Fehler: Grid ist nicht quadratisch!");
 		}
 	}
