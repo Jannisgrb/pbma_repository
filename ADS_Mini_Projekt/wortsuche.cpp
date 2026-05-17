@@ -29,22 +29,17 @@ int main(int argc, const char* argv[]){
 		}
 	}
 
-	vector<string> suchwoerter;
-
 	string wort;
 
 	while (cin >> wort){
-		suchwoerter.push_back(wort);
-	}
-		
-
-
-	for(size_t i = 0; i < suchwoerter.size(); ++i){
-		for(size_t j = 0; j < suchwoerter[i].size(); ++j){
-			suchwoerter[i][j] = tolower(suchwoerter[i][j]);
+		for(size_t i = 0; i < wort.length(); ++i){
+			wort[i] = tolower(wort[i]);
 		}
-		Suchaufruf(suchwoerter[i], grid);
+
+		Suchaufruf(wort, grid);
 	}
+
+	
 
 	return 0;
 
