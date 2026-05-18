@@ -10,16 +10,16 @@ int main(int argc, const char *argv[]) {
 
 	vector<string> grid = read_words(fname);
 	if (grid.size() == 0) {
-		throw runtime_error("Fehler: Grid konnte nicht gelesen werden.");
+		throw runtime_error("Fehler: Grid fehlerhaft.");
 	}
 
 	if ((int) grid.size() != stoi(grid[0]) + 1) {
-		throw runtime_error("Fehler: Grid ist nicht quadratisch!");
+		throw runtime_error("Fehler: Grid fehlerhaft!");
 	}
 
 	for (size_t i = 1; i < grid.size(); ++i) {
 		if ((int) grid[i].size() != stoi(grid[0])) {
-			throw runtime_error("Fehler: Grid ist nicht quadratisch!");
+			throw runtime_error("Fehler: Grid fehlerhaft!");
 		}
 	}
 
@@ -47,13 +47,6 @@ int main(int argc, const char *argv[]) {
 			Suchaufruf(suchwoerter[i], grid);
 		}
 	}
-
-//	getline(cin, wort);
-//	for(size_t i = 0; i < wort.length(); ++i){
-//		wort[i] = tolower(wort[i]);
-//	}
-//
-//	Suchaufruf(wort, grid);
 
 	return 0;
 

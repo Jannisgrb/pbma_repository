@@ -7,7 +7,7 @@ using namespace std;
 void Suchaufruf(string word, vector<string> grid) {
 	char Anfangsbuchstabe = word[0];
 	vector<Result> ergebnisse;
-	Direction start;
+	Ort start;
 	for (size_t i = 0; i < grid.size(); ++i) {
 		for (size_t j = 0; j < grid[i].size(); ++j) {
 			if (grid[i][j] == Anfangsbuchstabe) {
@@ -48,7 +48,7 @@ void Suchaufruf(string word, vector<string> grid) {
 	}
 }
 
-Result Wortsuche_Rechts(string word, vector<string> grid, Direction start) {
+Result Wortsuche_Rechts(string word, vector<string> grid, Ort start) {
 	Result gefunden;
 	gefunden.Spalte = start.Spalte;
 	gefunden.Zeile = start.Zeile - 1;
@@ -68,7 +68,7 @@ Result Wortsuche_Rechts(string word, vector<string> grid, Direction start) {
 	return gefunden;
 }
 
-Result Wortsuche_Links(string word, vector<string> grid, Direction start) {
+Result Wortsuche_Links(string word, vector<string> grid, Ort start) {
 	Result gefunden;
 	gefunden.Spalte = start.Spalte;
 	gefunden.Zeile = start.Zeile - 1;
@@ -88,7 +88,7 @@ Result Wortsuche_Links(string word, vector<string> grid, Direction start) {
 	return gefunden;
 }
 
-Result Wortsuche_Unten(string word, vector<string> grid, Direction start) {
+Result Wortsuche_Unten(string word, vector<string> grid, Ort start) {
 	Result gefunden;
 	gefunden.Spalte = start.Spalte;
 	gefunden.Zeile = start.Zeile - 1;
@@ -108,7 +108,7 @@ Result Wortsuche_Unten(string word, vector<string> grid, Direction start) {
 	return gefunden;
 }
 
-Result Wortsuche_Oben(string word, vector<string> grid, Direction start) {
+Result Wortsuche_Oben(string word, vector<string> grid, Ort start) {
 	Result gefunden;
 	gefunden.Spalte = start.Spalte;
 	gefunden.Zeile = start.Zeile - 1;
