@@ -22,16 +22,15 @@ int main() {
 	}
 	chars.out();
 
-	CommonVector<char*, 4> words;
-	words[0] = (char*) "Hallo";
-	words[1] = (char*) "tolle";
-	words[2] = (char*) "C++";
-	words[3] = (char*) "Welt";
+	CommonVector<char *, 4> words;
+	words[0] = (char *)"Hallo";
+	words[1] = (char *)"tolle";
+	words[2] = (char *)"C++";
+	words[3] = (char *)"Welt";
 
 	cout << "[ ";
 	for (size_t i = 0; i < words.size(); ++i) {
 		cout << words[i] << " ";
 	}
 	cout << "]" << endl;
-
 }
