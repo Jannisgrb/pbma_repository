@@ -1,4 +1,5 @@
 #include "CommonVector.h"
+#include <cstddef>
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -24,7 +25,7 @@ const T &CommonVector<T, len>::operator[](size_t idx) const {
 }
 
 template <typename T, size_t len> CommonVector<T, len>::CommonVector() {
-	elements = new T[len]{}; 
+	elements = new T[len]{};
 }
 
 template <typename T, size_t len> CommonVector<T, len>::~CommonVector() {
@@ -43,7 +44,29 @@ void CommonVector<T, len>::out(void) const {
 	std::cout << "]";
 }
 
+template <typename T, size_t len> 
+CommonVector<T, len>::CommonVector(const CommonVector &other) {
+	elements = new T[len];
+	
+	for(size_t i = 0; i < other.size(); ++i){
+		elements[i] = other.elements[i];
+	}
+}
+
+template<typename T, std::size_t len>
+CommonVector<T, len>& CommonVector<T, len>::operator=(const CommonVector& other){
+	if(this != &other){
+		delete[] elements;
+	
+		elements = new T[len];
+		for(size_t i = 0; i < len; ++i){
+			elements[i] = other.elements[i];
+		}
+	}
+	return *this;
+}
+
 // Explizite Instanziierungen für den Linker
 template class CommonVector<int, 10>;
 template class CommonVector<char, 25>;
-template class CommonVector<char*, 4>;
+template class CommonVector<char *, 4>;

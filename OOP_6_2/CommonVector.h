@@ -11,6 +11,8 @@ private:
 public:
 	CommonVector();
 	~CommonVector();
+	CommonVector(const CommonVector& other);
+	CommonVector& operator=(const CommonVector& other);
 	size_t size() const;
 	T &operator[](size_t idx);
 	const T &operator[](size_t idx) const;
