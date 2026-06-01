@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include "CommonVector.h"
 using namespace std;
 
 template<typename T, size_t len>
