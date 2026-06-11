@@ -1,74 +1,55 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 #include "pbma.h"
 using namespace std;
 
+int max_xy(const vector<int>& P, int low, int mid, int high){
+	int max_x = P[mid]; 
+	int aktuelle_summe = 0;
+	for(int i = mid; i >= low; --i){
+		aktuelle_summe += P[i];
+		if(aktuelle_summe > max_x){
+			max_x = aktuelle_summe;
+		}
+	}
+
+	int max_y = P[mid + 1];
+	aktuelle_summe = 0;
+	for(int i = mid + 1; i <= high; ++i){
+		aktuelle_summe += P[i];
+		if(aktuelle_summe > max_y){
+			max_y = aktuelle_summe;
+		}
+	}
+
+	return max_x + max_y;
+}
+
+int maxsub_rekurviv(const vector<int>& P, int low, int high){
+	if (low == high){
+		return P[low];
+	}
+
+	int mid = low + (high - low) / 2;
+
+	int max_a = maxsub_rekurviv(P, low, mid);
+	int max_b = maxsub_rekurviv(P, mid + 1, high);
+
+	int max_xy_result = max_xy(P, low, mid, high);
+
+	return max(max(max_a, max_b), max_xy_result); //algorith lib???
+}
+
 int main() {
-	vector<int> P = read_ints("maxsub.dat");
+	vector<int> P = read_ints("maxsubverylarge.dat");
 
-	int Mitte = P.size() / 2;
-
-	vector<int> L;
-	vector<int> R;
-
-	for (int i = 0; i < Mitte; i++) {
-		L.push_back(P[i]);
+	if (P.empty()) {
+		cout << "Die Datei ist leer." << endl;
+		return 1;
 	}
 
-	for (size_t i = Mitte; i < P.size(); i++) {
-		R.push_back(P[i]);
-	}
+	int maxsub = maxsub_rekurviv(P, 0, P.size() - 1);
 
-	int maxsub_y = R[0];
-	for (size_t ende = 0; ende < R.size(); ++ende) {
-		int aktuelle_Randsumme = R[0];
-		aktuelle_Randsumme += R[ende];
-		if (aktuelle_Randsumme > maxsub_y) {
-			maxsub_y = aktuelle_Randsumme;
-		}
-	}
-
-	int maxsub_x = L[L.size()];
-	for (size_t ende = L.size(); ende == 0; --ende) {
-		int aktuelle_Randsumme = L[L.size()];
-		aktuelle_Randsumme += L[ende];
-		if (aktuelle_Randsumme > maxsub_x) {
-			maxsub_x = aktuelle_Randsumme;
-		}
-	}
-
-	int maxsub_a = L[0];
-	for (size_t start = 0; start < L.size(); ++start) {
-		int aktuelle_summe = 0;
-		for (size_t ende = start; ende < L.size(); ++ende) {
-			aktuelle_summe += L[ende];
-			if (aktuelle_summe > maxsub_a) {
-				maxsub_a = aktuelle_summe;
-			}
-		}
-	}
-
-	int maxsub_b = R[0];
-	for (size_t start = 0; start < R.size(); ++start) {
-		int aktuelle_summe = 0;
-		for (size_t ende = start; ende < R.size(); ++ende) {
-			aktuelle_summe += R[ende];
-			if (aktuelle_summe > maxsub_b) {
-				maxsub_b = aktuelle_summe;
-			}
-		}
-	}
-
-	int Lsg = max(maxsub_a, maxsub_b);
-	Lsg = max(Lsg, maxsub_x + maxsub_y);
-	cout << Lsg << endl;
-
-//	for(size_t i = 0; i < L.size(); i++){
-//		cout << L[i] << endl;
-//	}
-//
-//	for(size_t i = 0; i < R.size(); i++){
-//		cout << R[i] << endl;
-//	}
-
+	cout << "Das maxsub ist: " << maxsub << endl;
 }
