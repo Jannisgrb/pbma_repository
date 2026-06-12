@@ -38,7 +38,7 @@ int maxsub_rekurviv(const vector<int>& P, int low, int high){
 
 	int max_xy_result = max_xy(P, low, mid, high);
 
-	return max(max(max_a, max_b), max_xy_result); //algorith lib???
+	return max(max(max_a, max_b), max_xy_result);
 }
 
 int main() {
