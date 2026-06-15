@@ -41,6 +41,21 @@ private:
     size_t _size;
 };
 
+typedef struct {
+    int matrikelnummer;
+    std::string vorname;
+    std::string nachname;
+
+    bool operator==(const studi&other) const {
+        return matrikelnummer == other.matrikelnummer;
+    }
+
+    bool operator!=(const studi&other) const {
+        return matrikelnummer != other.matrikelnummer;
+    }
+
+} studi;
+
 #include "sequence.cpp"
 
 #endif // SEQUENCE_H
